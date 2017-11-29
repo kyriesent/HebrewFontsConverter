@@ -68,7 +68,7 @@ def ConvertString(s, selection):
     for content in s:
         content = content.replace(' / ', '*')
         content = content.replace('* ','*')
-        content = content[:-1]
+        # content = content[:-1]
         #replace vowels
         content = ReplaceVowels(content, vowels)
         #change RTL before replacing characters

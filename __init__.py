@@ -41,20 +41,20 @@ def ReadLine(fread, selection) :
     else:
         print('wrong selection, exiting...')
         sys.exit()
-    
+
     bwhebb = []
     hebrew = []
     result = ''
     indicator = False
     vowels = ''
-    
-    try: 
+
+    try:
         c = open(charfile, 'r', encoding='utf-8')
     except (OSError, IOError):
         print('Character file not found, exiting...')
         sys.exit()
-    
-    #load characters and vowels in string    
+
+    #load characters and vowels in string
     for character in c:
         character.encode(encoding='utf-8', errors='replace')
         character = character.strip()
@@ -70,7 +70,7 @@ def ReadLine(fread, selection) :
             bwhebb.append(split[-1])
             hebrew.append(split[0])
     c.close()
-    
+
     try:
         f = open(fread, 'r', encoding='utf-8')
     except (OSError, IOError):
@@ -124,7 +124,7 @@ def  WriteFile(content) :
     fwrite.close()
 
 fread = None
-result = None    
+result = None
 fread, selection = LoadFile()
 result = ReadLine(fread, selection)
 WriteFile(result)

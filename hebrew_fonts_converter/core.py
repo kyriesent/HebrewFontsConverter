@@ -4,6 +4,18 @@ import os
 def convert(fread, selection):
     """Convert Bibleworks fonts to Unicode"""
 
+    result = ''
+
+    try:
+        f = open(fread, 'r', encoding='utf-8')
+    except (OSError, IOError):
+        print('Input file not found, exiting...')
+        sys.exit()
+    result = convertString(f, selection)
+    f.close()
+    return result
+
+def convertString(s, selection):
     if selection == '1':
         charfile = 'hebrew.txt'
         converter = 1
@@ -53,12 +65,7 @@ def convert(fread, selection):
             hebrew.append(split[0])
     c.close()
 
-    try:
-        f = open(fread, 'r', encoding='utf-8')
-    except (OSError, IOError):
-        print('Input file not found, exiting...')
-        sys.exit()
-    for content in f:
+    for content in s:
         content = content.replace(' / ', '*')
         content = content.replace('* ','*')
         content = content[:-1]
@@ -72,7 +79,7 @@ def convert(fread, selection):
             content = content.replace(bwhebb[i], hebrew[i])
         content = content.replace('*', '/')
         result += content + '\n'
-    f.close()
+
     if lang == 1:
         result = result +  u'\u200f'
     return result

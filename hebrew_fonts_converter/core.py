@@ -79,9 +79,10 @@ def ConvertString(s, selection):
             content = content.replace(bwhebb[i], hebrew[i])
         content = content.replace('*', '/')
         result += content + '\n'
-
+    """
     if lang == 1:
         result = result +  u'\u200f'
+    """
     return result
 
 def ReplaceVowels (content, vowels):

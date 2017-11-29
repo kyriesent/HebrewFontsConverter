@@ -22,7 +22,7 @@ def LoadFile() :
 
 #read line
 def ReadLine(fread, selection) :
-    return hebrew_fonts_converter.convert(fread, selection)
+    return hebrew_fonts_converter.Convert(fread, selection)
 
 #write file
 def  WriteFile(content) :

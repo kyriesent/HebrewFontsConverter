@@ -1,7 +1,7 @@
 import sys
 import os
 
-def convert(fread, selection):
+def Convert(fread, selection):
     """Convert Bibleworks fonts to Unicode"""
 
     result = ''
@@ -11,11 +11,11 @@ def convert(fread, selection):
     except (OSError, IOError):
         print('Input file not found, exiting...')
         sys.exit()
-    result = convertString(f, selection)
+    result = ConvertString(f, selection)
     f.close()
     return result
 
-def convertString(s, selection):
+def ConvertString(s, selection):
     if selection == '1':
         charfile = 'hebrew.txt'
         converter = 1
